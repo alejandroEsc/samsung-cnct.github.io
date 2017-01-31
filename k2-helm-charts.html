@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>About the Samsung SDS Cloud Native Computing Team | SDS Cloud Native Computing Team</title>
+<title>K2 Helm Charts | SDS Cloud Native Computing Team</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:red@TreesAndClouds.net?subject=CNCT Page feedback&body=I have some feedback about the About the Samsung SDS Cloud Native Computing Team page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:red@TreesAndClouds.net?subject=CNCT Page feedback&body=I have some feedback about the K2 Helm Charts page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 <li>
 
@@ -155,7 +155,7 @@
     <ul>
       
       
-        <li class="active"><a href="index.html">Samsung SDS CNCT Home</a></li>
+      <li><a href="index.html">Samsung SDS CNCT Home</a></li>
       
       
       
@@ -186,7 +186,7 @@
       
       
       
-      <li><a href="k2-helm-charts.html">K2 and Helm charts</a></li>
+        <li class="active"><a href="k2-helm-charts.html">K2 and Helm charts</a></li>
       
       
       
@@ -211,7 +211,7 @@
 
       <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">About the Samsung SDS Cloud Native Computing Team</h1>
+   <h1 class="post-title-main">K2 Helm Charts</h1>
 </div>
 
 
@@ -222,13 +222,37 @@
 
     
 
-  <p>Samsung SDS provides frictionless software solutions to help you optimize productivity, make the right decisions, and strengthen your organization. The Samsung SDS Cloud Native Computing Team (CNCT) was created to advance this mission through research into practices that improve the velocity and efficiency of DevOps teams, within Samsung, for its clients and partners, and for the community.</p>
+  <p>CNCT creates Helm charts that can be useful for deploying a K2 cluster with the functionality your application requires.</p>
 
-<p>As a technology team committed to invisible infrastructure, we bring insight into the requirements of modern web services delivered at scale. Samsung SDS has been a driving force behind Kubernetes and is committed to advancing containerized architectures. This work benefits Samsung’s own deployments and execution in the hybrid cloud environment through improved automation, flexibility, co-tenancy, and efficiency.</p>
+<p>For an introduction to Helm and how to use charts in your K2 application: <a href="https://helm.sh/">helm.sh</a></p>
 
-<p>Samsung SDS is committed to active participation in a vibrant open-source community that delivers production-grade infrastructure software. The CNCT contributes tools and research to advance cloud native innovation. These tools are designed to help you scale your infrastructure no matter where your services are deployed.</p>
+<p>These charts are automatically linted and published with Jenkins CI to the CNCT Helm repo: <a href="http://atlas.cnct.io/">atlas.cnct.io</a>. Source for these charts is available on GitHub at https://github.com/samsung-cnct/k2-charts.</p>
 
-<p>The CNCT also provides consulting to organizations making the shift to Cloud Native computing. Services include guidance refactoring development and operations groups, working with development teams to adopt technologies like Kubernetes, and performing SRE and (virtual) cluster operations services.</p>
+<p>To install a chart with a K2 template yaml:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>clusterServices:
+  repos:
+    -
+      name: atlas
+      url: http://atlas.cnct.io
+  services:
+    -
+      name: kafka
+      repo: atlas
+      chart: kafka
+      version: 0.1.0
+</code></pre>
+</div>
+
+<p>To use Helm locally in you cluster to install charts run a command similar to:
+<code class="highlighter-rouge">
+docker run -v ~/:/root -it --rm=true -e HELM_HOME=/root/.kraken/&lt;yourcluster&gt;/.helm -e KUBECONFIG=/root/.kraken/&lt;yourcluster&gt;/admin.kubeconfig quay.io/samsung_cnct/k2:latest helm list
+</code>
+To use Helm with a locally installed kubectl:
+<code class="highlighter-rouge">
+export KUBECONFIG=~/.kraken/&lt;yourcluster&gt;/admin.kubeconfig
+helm list --home ~/.kraken/&lt;yourcluster&gt;/.helm
+</code></p>
 
 
     <div class="tags">

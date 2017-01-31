@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>About the Samsung SDS Cloud Native Computing Team | SDS Cloud Native Computing Team</title>
+<title>About the team | SDS Cloud Native Computing Team</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:red@TreesAndClouds.net?subject=CNCT Page feedback&body=I have some feedback about the About the Samsung SDS Cloud Native Computing Team page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:red@TreesAndClouds.net?subject=CNCT Page feedback&body=I have some feedback about the About the team page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
 
 <li>
 
@@ -155,7 +155,7 @@
     <ul>
       
       
-        <li class="active"><a href="index.html">Samsung SDS CNCT Home</a></li>
+      <li><a href="index.html">Samsung SDS CNCT Home</a></li>
       
       
       
@@ -211,7 +211,7 @@
 
       <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">About the Samsung SDS Cloud Native Computing Team</h1>
+   <h1 class="post-title-main">About the team</h1>
 </div>
 
 
@@ -221,14 +221,31 @@
    
 
     
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
 
-  <p>Samsung SDS provides frictionless software solutions to help you optimize productivity, make the right decisions, and strengthen your organization. The Samsung SDS Cloud Native Computing Team (CNCT) was created to advance this mission through research into practices that improve the velocity and efficiency of DevOps teams, within Samsung, for its clients and partners, and for the community.</p>
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
 
-<p>As a technology team committed to invisible infrastructure, we bring insight into the requirements of modern web services delivered at scale. Samsung SDS has been a driving force behind Kubernetes and is committed to advancing containerized architectures. This work benefits Samsung’s own deployments and execution in the hybrid cloud environment through improved automation, flexibility, co-tenancy, and efficiency.</p>
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
 
-<p>Samsung SDS is committed to active participation in a vibrant open-source community that delivers production-grade infrastructure software. The CNCT contributes tools and research to advance cloud native innovation. These tools are designed to help you scale your infrastructure no matter where your services are deployed.</p>
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
 
-<p>The CNCT also provides consulting to organizations making the shift to Cloud Native computing. Services include guidance refactoring development and operations groups, working with development teams to adopt technologies like Kubernetes, and performing SRE and (virtual) cluster operations services.</p>
+<div id="toc"></div>
+
+    
+
+  <p>The Cloud Native Compute Team is based in the historic Smith Tower in Seattle’s Pioneer Square.</p>
 
 
     <div class="tags">
@@ -242,7 +259,7 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Samsung SDS. All rights reserved. <br />
- Site last generated: Jan 31, 2017 <br />
+<span>Page last updated:</span> July 3, 2016<br/> Site last generated: Jan 31, 2017 <br />
 <p><img src="images/samsunglogo.jpg" alt="Company logo"/></p>
                 </div>
             </div>
